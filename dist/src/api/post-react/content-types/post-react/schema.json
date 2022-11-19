@@ -1,0 +1,28 @@
+{
+    "kind": "collectionType",
+    "collectionName": "post_reacts",
+    "info": {
+        "singularName": "post-react",
+        "pluralName": "post-reacts",
+        "displayName": "Post_React"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "user": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user"
+        },
+        "post": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::post.post"
+        },
+        "type": {
+            "type": "integer"
+        }
+    }
+}
