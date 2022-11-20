@@ -22,7 +22,7 @@ export default factories.createCoreController("api::post.post", () => {
       let res = await strapi.db
         .query("plugin::users-permissions.user")
         .findWithCount({
-          select: ["username"],
+          select: ["username", "phoneNumber", "id"],
           where: { username: ctx.query.username },
         });
       return res;
@@ -31,7 +31,7 @@ export default factories.createCoreController("api::post.post", () => {
       let res = await strapi.db
         .query("plugin::users-permissions.user")
         .findWithCount({
-          select: ["username", "phoneNumber"],
+          select: ["username", "phoneNumber", "id"],
           where: { phoneNumber: ctx.query.phoneNumber },
         });
       return res;
