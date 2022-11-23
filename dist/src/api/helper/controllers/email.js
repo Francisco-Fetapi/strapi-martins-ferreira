@@ -2,27 +2,29 @@
 /**
  * post controller
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
+const crypto_1 = __importDefault(require("crypto"));
 exports.default = strapi_1.factories.createCoreController("api::post.post", () => {
     return {
-        async sendEmail(ctx) {
+        async sendEmailConfirmation(ctx) {
             const body = ctx.request.body;
             const sendTo = body.email;
-            strapi.log.debug(`Trying to send an email to ${sendTo}`);
+            const codeGenerated = crypto_1.default.randomBytes(12).toString("hex");
             try {
                 const emailOptions = {
                     to: sendTo,
-                    subject: "This is a test",
-                    html: `<h1>Welcome!</h1><p>This is a test HTML email.</p>`,
+                    subject: "Confirmação do Email",
+                    html: `<h1>Seja bem-vindo!</h1><p>O seu código de confirmação é <b>${codeGenerated}</b>.</p>`,
                 };
                 await strapi.plugins["email"].services.email.send(emailOptions);
-                strapi.log.debug(`Email sent to ${sendTo}`);
-                ctx.send({ message: "Email sent" });
+                ctx.send({ status: "success", code: codeGenerated });
             }
             catch (err) {
-                strapi.log.error(`Error sending email to ${sendTo}`, err);
-                ctx.send({ error: "Error sending email" });
+                ctx.send({ status: "error" });
             }
         },
     };
