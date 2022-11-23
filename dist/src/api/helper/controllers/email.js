@@ -17,8 +17,8 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
             try {
                 const emailOptions = {
                     to: sendTo,
-                    subject: "Confirmação do Email",
-                    html: `<h3>Seja bem-vindo ao Portal Obadias Malaquias!</h3><p>O seu código de confirmação é <b>${codeGenerated}</b></p>`,
+                    subject: "Confirmação do Email - Portal Obadias Malaquias",
+                    html: `<p>O seu código de confirmação é <b>${codeGenerated}</b></p>`,
                 };
                 await strapi.plugins["email"].services.email.send(emailOptions);
                 ctx.send({ status: "success", code: codeGenerated });

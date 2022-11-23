@@ -13,7 +13,7 @@ export default factories.createCoreController("api::post.post", () => {
       let res = await strapi.db
         .query("plugin::users-permissions.user")
         .findWithCount({
-          select: ["username", "email"],
+          select: ["username", "email", "id"],
           where: { email: ctx.query.email },
         });
       return res;
