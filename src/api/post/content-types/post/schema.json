@@ -29,6 +29,23 @@
     "approved": {
       "type": "boolean",
       "default": false
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "post_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post-comment.post-comment",
+      "mappedBy": "post"
+    },
+    "post_reacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post-react.post-react",
+      "mappedBy": "post"
     }
   }
 }
