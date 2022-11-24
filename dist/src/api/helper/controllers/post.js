@@ -10,7 +10,7 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
             const res = await strapi.db.query("api::post.post").findPage({
                 where: { approved: true },
                 orderBy: { publishedAt: "DESC" },
-                populate: ["user", "photo", "post-comment", "post-react"],
+                populate: ["user", "photo", "post_comments", "post_reacts"],
             });
             return ctx.send(res);
         },
@@ -18,7 +18,7 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
             const posts = await strapi.db.query("api::post.post").findPage({
                 where: { user: ctx.state.user },
                 orderBy: { publishedAt: "DESC" },
-                populate: ["photo"],
+                populate: ["photo", "post_comments", "post_reacts"],
             });
             return ctx.send(posts);
         },

@@ -31,7 +31,7 @@ export default factories.createCoreController("api::post.post", () => {
       const posts = await strapi.db.query("api::post.post").findPage({
         where: { user: ctx.state.user },
         orderBy: { publishedAt: "DESC" },
-        populate: ["photo"],
+        populate: ["photo", "post_comments", "post_reacts"],
       });
 
       return ctx.send(posts);
