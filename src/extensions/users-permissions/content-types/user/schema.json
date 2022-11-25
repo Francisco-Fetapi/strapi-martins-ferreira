@@ -104,6 +104,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post"
+    },
+    "post_saveds": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "user_savings"
     }
   }
 }

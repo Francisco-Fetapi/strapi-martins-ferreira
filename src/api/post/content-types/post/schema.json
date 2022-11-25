@@ -46,6 +46,12 @@
       "relation": "oneToMany",
       "target": "api::post-react.post-react",
       "mappedBy": "post"
+    },
+    "user_savings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "post_saveds"
     }
   }
 }
