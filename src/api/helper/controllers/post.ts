@@ -24,6 +24,7 @@ export default factories.createCoreController("api::post.post", () => {
         populate: ["user", "photo", "post_comments", "post_reacts"],
       });
 
+      console.log(res);
       return ctx.send(res);
     },
     async listMyPosts(ctx) {
