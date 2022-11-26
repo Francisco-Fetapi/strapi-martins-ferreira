@@ -7,8 +7,17 @@ const strapi_1 = require("@strapi/strapi");
 exports.default = strapi_1.factories.createCoreController("api::post.post", () => {
     return {
         async listApprovedPosts(ctx) {
+            const user_id = ctx.query.user_id;
+            let othersFilters = {};
+            if (user_id) {
+                othersFilters = {
+                    user: {
+                        id: user_id,
+                    },
+                };
+            }
             const res = await strapi.db.query("api::post.post").findPage({
-                where: { approved: true },
+                where: { approved: true, ...othersFilters },
                 orderBy: { publishedAt: "DESC" },
                 populate: ["user", "photo", "post_comments", "post_reacts"],
             });
