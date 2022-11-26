@@ -16,7 +16,8 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
                     },
                 };
             }
-            const res = await strapi.db.query("api::post.post").findPage({
+            // findPage
+            const res = await strapi.db.query("api::post.post").findMany({
                 where: { approved: true, ...othersFilters },
                 orderBy: { publishedAt: "DESC" },
                 populate: ["user", "photo", "post_comments", "post_reacts"],
@@ -24,7 +25,8 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
             return ctx.send(res);
         },
         async listMyPosts(ctx) {
-            const posts = await strapi.db.query("api::post.post").findPage({
+            // findPage
+            const posts = await strapi.db.query("api::post.post").findMany({
                 where: { user: ctx.state.user },
                 orderBy: { publishedAt: "DESC" },
                 populate: ["photo", "post_comments", "post_reacts"],
