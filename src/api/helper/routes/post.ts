@@ -10,5 +10,15 @@ export default {
       path: "/posts/mine",
       handler: "post.listMyPosts",
     },
+    {
+      method: "POST",
+      path: "/post/comment",
+      handler: "post.postComment",
+    },
+    {
+      method: "GET",
+      path: "/post/comments",
+      handler: "post.getAllComments",
+    },
   ],
 };

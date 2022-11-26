@@ -41,5 +41,40 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
             //     },
             //   });
         },
+        async postComment(ctx) {
+            const { content, post } = ctx.request.body;
+            const user = ctx.state.user;
+            const entry = await strapi.db
+                .query("api::post-comment.post-comment")
+                .create({
+                data: {
+                    content,
+                    post,
+                    user,
+                    publishedAt: new Date(),
+                },
+                populate: ["user", "post"],
+            });
+            return ctx.send(entry);
+        },
+        async getAllComments(ctx) {
+            const post_id = ctx.query.post_id;
+            const entry = await strapi.db
+                .query("api::post-comment.post-comment")
+                .findMany({
+                where: {
+                    post: {
+                        id: post_id,
+                    },
+                },
+                populate: [
+                    "user",
+                    "user.photo",
+                    "comment_reacts",
+                    "comment_reacts.user",
+                ],
+            });
+            return ctx.send(entry);
+        },
     };
 });

@@ -4,7 +4,8 @@
     "info": {
         "singularName": "comment-react",
         "pluralName": "comment-reacts",
-        "displayName": "Comment_React"
+        "displayName": "Comment_React",
+        "description": ""
     },
     "options": {
         "draftAndPublish": true
@@ -16,8 +17,9 @@
         },
         "comment": {
             "type": "relation",
-            "relation": "oneToOne",
-            "target": "api::post-comment.post-comment"
+            "relation": "manyToOne",
+            "target": "api::post-comment.post-comment",
+            "inversedBy": "comment_reacts"
         },
         "user": {
             "type": "relation",

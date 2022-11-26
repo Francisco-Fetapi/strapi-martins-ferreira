@@ -25,6 +25,12 @@
             "relation": "manyToOne",
             "target": "api::post.post",
             "inversedBy": "post_comments"
+        },
+        "comment_reacts": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::comment-react.comment-react",
+            "mappedBy": "comment"
         }
     }
 }
