@@ -21,10 +21,16 @@ export default factories.createCoreController("api::post.post", () => {
       const res = await strapi.db.query("api::post.post").findMany({
         where: { approved: true, ...othersFilters },
         orderBy: { publishedAt: "DESC" },
-        populate: ["user", "photo", "post_comments", "post_reacts"],
+        populate: [
+          "user",
+          "user.photo",
+          "photo",
+          "post_comments",
+          "post_reacts",
+          "post_reacts.user",
+        ],
       });
 
-      console.log(res);
       return ctx.send(res);
     },
     async listMyPosts(ctx) {
@@ -32,7 +38,7 @@ export default factories.createCoreController("api::post.post", () => {
       const posts = await strapi.db.query("api::post.post").findMany({
         where: { user: ctx.state.user },
         orderBy: { publishedAt: "DESC" },
-        populate: ["photo", "post_comments", "post_reacts"],
+        populate: ["photo", "post_comments", "post_reacts", "post_reacts.user"],
       });
 
       return ctx.send(posts);
