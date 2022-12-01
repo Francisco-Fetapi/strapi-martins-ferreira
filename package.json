@@ -9,16 +9,15 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {
-    "better-sqlite3": "7.4.6"
-  },
+  "devDependencies": {},
   "dependencies": {
     "@strapi/plugin-i18n": "4.4.3",
     "@strapi/plugin-users-permissions": "4.4.3",
     "@strapi/provider-email-sendgrid": "^4.5.2",
     "@strapi/strapi": "4.4.3",
     "dotenv": "^16.0.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "better-sqlite3": "7.4.6"
   },
   "author": {
     "name": "A Strapi developer"
