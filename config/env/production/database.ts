@@ -13,6 +13,5 @@ export default ({ env }) => ({
       user: env("DATABASE_USERNAME", "root"),
       password: env("DATABASE_PASSWORD", ""),
     },
-    useNullAsDefault: true,
   },
 });
