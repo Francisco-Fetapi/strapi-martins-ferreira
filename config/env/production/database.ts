@@ -5,7 +5,8 @@ export default ({ env }) => ({
     //   filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
     // },
     // useNullAsDefault: true,
-    client: "mysql",
+    client: "mysql2",
+    // client: "mysql",
     connection: {
       host: env("DATABASE_HOST", "localhost"),
       port: env("DATABASE_PORT", 3306),
