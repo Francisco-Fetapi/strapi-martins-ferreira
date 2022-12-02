@@ -28,6 +28,7 @@ export default factories.createCoreController("api::post.post", () => {
           "post_comments",
           "post_reacts",
           "post_reacts.user",
+          "post_reacts.user.photo",
         ],
       });
 
@@ -44,6 +45,7 @@ export default factories.createCoreController("api::post.post", () => {
           "post_comments",
           "post_reacts",
           "post_reacts.user",
+          "post_reacts.user.photo",
         ],
       });
 
@@ -94,6 +96,7 @@ export default factories.createCoreController("api::post.post", () => {
             "user.photo",
             "comment_reacts",
             "comment_reacts.user",
+            "comment_reacts.user.photo",
           ],
         });
 

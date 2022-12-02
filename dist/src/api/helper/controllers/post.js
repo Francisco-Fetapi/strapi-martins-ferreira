@@ -27,6 +27,7 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
                     "post_comments",
                     "post_reacts",
                     "post_reacts.user",
+                    "post_reacts.user.photo",
                 ],
             });
             return ctx.send(res);
@@ -42,6 +43,7 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
                     "post_comments",
                     "post_reacts",
                     "post_reacts.user",
+                    "post_reacts.user.photo",
                 ],
             });
             return ctx.send(posts);
@@ -88,6 +90,7 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
                     "user.photo",
                     "comment_reacts",
                     "comment_reacts.user",
+                    "comment_reacts.user.photo",
                 ],
             });
             return ctx.send(entry);
