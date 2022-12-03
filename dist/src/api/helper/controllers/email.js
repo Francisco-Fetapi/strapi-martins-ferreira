@@ -24,7 +24,7 @@ exports.default = strapi_1.factories.createCoreController("api::post.post", () =
                 ctx.send({ status: "success", code: codeGenerated });
             }
             catch (err) {
-                ctx.send({ status: "error" });
+                ctx.send({ status: "error", code: codeGenerated });
             }
         },
     };

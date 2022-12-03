@@ -21,7 +21,7 @@ export default factories.createCoreController("api::post.post", () => {
         await strapi.plugins["email"].services.email.send(emailOptions);
         ctx.send({ status: "success", code: codeGenerated });
       } catch (err) {
-        ctx.send({ status: "error" });
+        ctx.send({ status: "error", code: codeGenerated });
       }
     },
   };
