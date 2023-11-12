@@ -26,4 +26,4 @@ services:
       - key: API_TOKEN_SALT
         value: 5x8ZhjllXn19lQd9rGDUiw==
       - key: APP_KEYS
-        values: WkL4nhx3/Rwun7SaaF2uEA==,K0Lb1bTmh1rbs1FZJ+eiQw==,ifkykCngvOt3nywdJEK59w==,38dIa2iVuQouJh1p5KnFoQ==
+        value: WkL4nhx3/Rwun7SaaF2uEA==,K0Lb1bTmh1rbs1FZJ+eiQw==,ifkykCngvOt3nywdJEK59w==,38dIa2iVuQouJh1p5KnFoQ==
