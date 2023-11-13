@@ -11,11 +11,14 @@ export default factories.createCoreController("api::post.post", () => {
       const body = ctx.request.body;
       const sendTo = body.email;
 
-      const codeGenerated = crypto.randomBytes(12).toString("hex");
+      const codeGenerated = crypto
+        .randomBytes(12)
+        .toString("hex")
+        .substring(0, 4);
       try {
         const emailOptions = {
           to: sendTo,
-          subject: "Confirmação do Email - Portal Obadias Malaquias",
+          subject: "Portal Martins Ferreira - Confirmação do Email",
           html: `<p>O seu código de confirmação é <b>${codeGenerated}</b></p>`,
         };
         await strapi.plugins["email"].services.email.send(emailOptions);
